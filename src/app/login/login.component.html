@@ -9,8 +9,9 @@
             <input class="input" type="password" formControlName="password" name="password">
             <br><br>
             <div class="form-buttons">
-                <button class="button button-primary" (click)="login()">Login</button>
+                <button class="button button-primary" (click)="login()" [disabled]="form.invalid">Login</button>
             </div>   
         </form>   
     </div>        
-</div>
+</div>     
+
