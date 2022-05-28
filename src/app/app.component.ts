@@ -8,5 +8,4 @@ import { AuthService } from './auth.service';
 })
 export class AppComponent {
   title = 'exercise';
-  // constructor(private authService: AuthService) { }
 }
