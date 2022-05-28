@@ -9,27 +9,27 @@ import { tokenize } from '@angular/compiler/src/ml_parser/lexer';
 })
 
 export class AuthService {
-  API_URL = 'http://localhost:4200';
+  API_URL = 'http://localhost:8080';
   TOKEN_KEY = 'token';
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  login(username: string, pass: string, token: string) {
+  login(username: string, password: string, token: string) {
     const headers = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
 
     const data = {
       username: username,
-      password: pass,
+      password: password,
       token: token
     };
 
-    this.http.post(this.API_URL, data, headers).subscribe(
+    this.http.post(this.API_URL+"/login", data, headers).subscribe(
       (res: any) => {
           localStorage.setItem(this.TOKEN_KEY, res.token);
 
-          this.router.navigateByUrl('https://onecause.com');
+          window.location.href="http://onecause.com"
       }
     );
   }
